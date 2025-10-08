@@ -5,14 +5,27 @@ const locationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: String,
-    latitude: Number,
-    longitude: Number,
-    photos: [String],
-    createdAt: {
-        type: Date,
-        default: Date.now
+    description: {
+        type: String
     },
+    type: {
+        type: String,
+        enum: ["tree", "spot"],
+        default: "tree"
+    },
+    latitude: {
+        type: Number,
+        required: true
+    },
+    longitude: {
+        type: Number,
+        required: true
+    },
+    photos: [{
+        type: String
+    }],
+}, {
+    timestamps: true
 });
 
-export const Location = mongoose.model("Location", locationSchema);
+export default mongoose.model("Location", locationSchema);

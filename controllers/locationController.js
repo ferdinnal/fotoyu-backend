@@ -1,11 +1,10 @@
-import {
-    Location
-} from "../models/locationModel.js";
+import Location from "../models/locationModel.js";
+import fs from "fs";
 
 export const getLocations = async (req, res) => {
     try {
-        const locations = await Location.find();
-        res.json(locations);
+        const data = await Location.find();
+        res.json(data);
     } catch (err) {
         res.status(500).json({
             message: err.message
@@ -13,26 +12,34 @@ export const getLocations = async (req, res) => {
     }
 };
 
-export const createLocation = async (req, res) => {
+export const addLocation = async (req, res) => {
     try {
         const {
             name,
             description,
             latitude,
-            longitude
+            longitude,
+            type
         } = req.body;
-        const photos = req.files ? req.files.map((f) => f.filename) : [];
 
-        const newLocation = await Location.create({
+        let photoUrl = "";
+        if (req.file) {
+            photoUrl = `/uploads/${req.file.filename}`;
+        }
+
+        const newLocation = new Location({
             name,
             description,
+            type,
             latitude,
             longitude,
-            photos,
+            photos: photoUrl ? [photoUrl] : [],
         });
 
-        res.status(201).json(newLocation);
+        const saved = await newLocation.save();
+        res.status(201).json(saved);
     } catch (err) {
+        console.error("❌ Error saving location:", err);
         res.status(500).json({
             message: err.message
         });

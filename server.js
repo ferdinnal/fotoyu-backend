@@ -27,11 +27,12 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Routes
 app.use("/api/locations", locationRoutes);
 
+// Default route
 app.get("/", (req, res) => {
-    res.send("Fotoyu API is running!");
+    res.send("🌳 Fotoyu API is running!");
 });
 
-// Connect to DB & start server
+// Start server
 connectDB().then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 });

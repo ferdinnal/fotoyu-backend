@@ -1,0 +1,17 @@
+[{
+        "name": "Pohon Mahoni",
+        "description": "Pohon rindang di taman kota.",
+        "type": "tree",
+        "latitude": -6.1754,
+        "longitude": 106.8272,
+        "photos": ["/uploads/sample-tree.jpg"]
+    },
+    {
+        "name": "Spot Foto Air Mancur",
+        "description": "Tempat populer untuk selfie.",
+        "type": "spot",
+        "latitude": -6.1751,
+        "longitude": 106.8275,
+        "photos": ["/uploads/sample-spot.jpg"]
+    }
+]
