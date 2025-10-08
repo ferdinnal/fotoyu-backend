@@ -3,6 +3,7 @@
         "description": "Taman publik dengan pepohonan rindang dan area duduk nyaman di pusat Semarang.",
         "latitude": -6.98152,
         "longitude": 110.40914,
+        "type": "Spot",
         "photos": ["/uploads/taman_indonesia_kaya.jpg"]
     },
     {
@@ -10,13 +11,15 @@
         "description": "Lapangan ikonik di Semarang dengan banyak pepohonan dan area terbuka hijau.",
         "latitude": -6.99357,
         "longitude": 110.42037,
-        "photos": ["/uploads/simpang_lima.jpeg"]
+        "type": "Spot",
+        "photos": ["/uploads/simpang_lima.jpg"]
     },
     {
         "name": "Hutan Wisata Tinjomoyo",
         "description": "Hutan kota dengan banyak pohon besar, cocok untuk tracking ringan.",
         "latitude": -7.03834,
         "longitude": 110.39424,
+        "type": "Tree",
         "photos": ["/uploads/tinjomoyo.jpg"]
     },
     {
@@ -24,6 +27,7 @@
         "description": "Area wisata warna-warni dengan banyak tanaman hias dan pohon rindang.",
         "latitude": -6.98389,
         "longitude": 110.41912,
+        "type": "Spot",
         "photos": ["/uploads/kampung_pelangi.jpg"]
     },
     {
@@ -31,6 +35,7 @@
         "description": "Kampus dengan banyak area hijau dan pepohonan besar di sekitarnya.",
         "latitude": -7.05483,
         "longitude": 110.43605,
+        "type": "Tree",
         "photos": ["/uploads/undip_tembalang.jpg"]
     }
 ]

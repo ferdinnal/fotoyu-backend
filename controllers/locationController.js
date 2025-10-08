@@ -13,12 +13,10 @@ export const getLocations = async (req, res) => {
     try {
         let locations = await Location.find();
 
-        // Jika database kosong → isi dari dummy JSON
         if (locations.length === 0) {
             const dataPath = path.join(__dirname, "../data/locations.json");
             const dummy = JSON.parse(fs.readFileSync(dataPath, "utf8"));
 
-            // Simpan ke DB
             await Location.insertMany(dummy);
             locations = await Location.find();
             console.log("🌳 Dummy data (Semarang) telah dimasukkan ke database!");
@@ -39,7 +37,8 @@ export const addLocation = async (req, res) => {
             name,
             description,
             latitude,
-            longitude
+            longitude,
+            type
         } = req.body;
         const photoPath = req.file ? `/uploads/${req.file.filename}` : null;
 
@@ -48,6 +47,7 @@ export const addLocation = async (req, res) => {
             description,
             latitude,
             longitude,
+            type: type || "Tree",
             photos: photoPath ? [photoPath] : [],
         });
 
